@@ -7,11 +7,11 @@
 var js = document.createElement("script");
 
 js.type = "text/javascript";
-js.src = "../node_modules/moment/moment.js";
+js.src = "files/moment.js";
 
 document.body.appendChild(js);
 
-var almostSnd = new Audio("Mariachi_Snooze.mp3");
+var almostSnd = new Audio("files/Mariachi_Snooze.mp3");
 
 // minInput.focus();
 // btnyoutubeToggle.disabled = true;
@@ -139,7 +139,7 @@ function setTime(){
         // When reaching 0. Stop.
         if (currentTime <= 0) {
             turnOffFields(false);
-            image.src = 'done.jpg';
+            image.src = 'files/done.jpg';
             clearInterval(timer);
         }
     }, 1000); // 1 second

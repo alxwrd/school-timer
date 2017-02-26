@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link href="files/style.css" rel="stylesheet" type="text/css"/>
     <title>Reading Timer</title>
 </head>
 <body>
@@ -22,16 +22,16 @@
         <button class="button" id="startButton" onclick="setTime()">Start</button>
         <br><br>
         <select class="input" id="gifSelect" onchange="gifChange()">
-            <option value="1.gif" selected>Autumn Stream</option>
-            <option value="2.gif">Tropical Beach</option>
-            <option value="3.gif">Mountain Lake</option>
-            <option value="4.gif">Snowy Forest</option>
-            <option value="5.gif">Rainy Day</option>
-            <option value="6.gif">Forest Waterfall</option>
-            <option value="7.gif">Windy Hillside</option>
-            <option value="8.gif">Sunny Forest</option>
-            <option value="9.gif">Spring Flowers</option>
-            <option value="10.gif">Mountain Meadow</option>
+            <option value="files/1.gif" selected>Autumn Stream</option>
+            <option value="files/2.gif">Tropical Beach</option>
+            <option value="files/3.gif">Mountain Lake</option>
+            <option value="files/4.gif">Snowy Forest</option>
+            <option value="files/5.gif">Rainy Day</option>
+            <option value="files/6.gif">Forest Waterfall</option>
+            <option value="files/7.gif">Windy Hillside</option>
+            <option value="files/8.gif">Sunny Forest</option>
+            <option value="files/9.gif">Spring Flowers</option>
+            <option value="files/10.gif">Mountain Meadow</option>
         </select>
         <br>
         <input class="input targets" id="lessonAims" placeholder="Lesson Aims">
@@ -50,9 +50,9 @@
         </center>
     <div>
 
-    <img id="image" src="1.gif">
-    <img id="frame" src="frame.png">
-    <img id="targetFrame" src="target_frame2.png">
+    <img id="image" src="files/1.gif">
+    <img id="frame" src="files/frame.png">
+    <img id="targetFrame" src="files/target_frame2.png">
     <div id="timerDiv" class="timer">00:00</div>
     <p id="instructions" class="instructions" align="center"></p>
 
@@ -60,6 +60,6 @@
     <iframe width="0" height="0" src="" frameborder="0" style="position: fixed; top: 0; left: 0; font-size: 1vmax;" id="youtubePlaylist" allowfullscreen></iframe>
 
 
-<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="files/index.js"></script>
 </body>
 </html>
