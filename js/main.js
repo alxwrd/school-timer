@@ -1,35 +1,12 @@
-// // Require moment.js
-// const moment = require('moment');
-// // Require ipcRender
-// const {ipcRenderer, dialog} = require('electron');
-// const remote = require('electron').remote;
-
 var js = document.createElement("script");
 
 js.type = "text/javascript";
-js.src = "files/moment.js";
+js.src = "js/moment.js";
 
 document.body.appendChild(js);
 
 var almostSnd = new Audio("files/Mariachi_Snooze.mp3");
 
-// minInput.focus();
-// btnyoutubeToggle.disabled = true;
-//
-// quitButton.addEventListener('click', function (e) {
-//     var window = remote.getCurrentWindow();
-//     window.close();
-// });
-//
-// minInput.addEventListener('keyup', function (e) {
-//     e.preventDefault();
-//     if (e.keyCode == 13) {startButton.click();}
-// });
-//
-// secInput.addEventListener('keyup', function (e) {
-//     e.preventDefault();
-//     if (e.keyCode == 13) {startButton.click();}
-// });
 
 
 // Helper function, to format the time
@@ -44,7 +21,6 @@ const secondsToTime = (s) => {
 
 function youtubeToggle() {
     if (youtubePlaylist.width > 1){
-        console.log("increase");
         youtubePlaylist.width = "0";
         youtubePlaylist.height = "0";
     } else {
@@ -108,7 +84,7 @@ function setTime(){
         var inputSeconds = Number(secInput.value);
         var currentTime = (inputMinutes * 60) + inputSeconds;
     } else {
-        var currentTime = 1200;
+        var currentTime = 600;
     }
     // Disable the time input and start elements
     turnOffFields(true);
@@ -139,7 +115,7 @@ function setTime(){
         // When reaching 0. Stop.
         if (currentTime <= 0) {
             turnOffFields(false);
-            image.src = 'files/done.jpg';
+            image.src = 'images/done.jpg';
             clearInterval(timer);
         }
     }, 1000); // 1 second

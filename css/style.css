@@ -3,7 +3,7 @@
 
 body{
     font-family: 'Comfortaa', serif;
-    background: url("wallpaper.jpg") no-repeat center center fixed #8C2538;
+    background: url("../images/wallpaper.jpg") no-repeat center center fixed #8C2538;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -97,16 +97,16 @@ body{
     }
 
 .buttonYoutube {
-    background-image: url(youtube_ico.png); /* 16px x 16px */
-    background-color: transparent; /* make the button transparent */
-    background-repeat: no-repeat;  /* make the background image appear only once */
-    background-position: 0px 0px 0px 0px;  /* equivalent to 'top left' */
-    border: none;           /* assuming we don't want any borders */
-    cursor: pointer;        /* make the cursor like hovering over an <a> element */
+    background-image: url(../images/youtube_ico.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0px 0px 0px 0px;
+    border: none;
+    cursor: pointer;
     height: 16px;
-    width: 16px;        /* make this the size of your image */
-    padding-left: 16px;     /* make text start to the right of the image */
-    vertical-align: middle; /* align the text vertically centered */
+    width: 16px;
+    padding-left: 16px;
+    vertical-align: middle;
     -webkit-app-region: no-drag;
     z-index: 3;
 }
@@ -135,7 +135,6 @@ body{
 
 
 .targets {
-    .input;
     width: 20vmax;
     font-size: 1.5vmax;
     text-align-last:center;
