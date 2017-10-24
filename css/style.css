@@ -10,15 +10,6 @@ body{
     background-size: cover;
 }
 
-#welcome {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    color: #FAF0E6;
-    font-size: 2vmax;
-    text-shadow: 4px 4px 10px #3F2F4F;
-    opacity: 0.8;
-}
 
 #image {
     position: absolute;
@@ -96,23 +87,6 @@ body{
         display: none;
     }
 
-.buttonYoutube {
-    background-image: url(../images/youtube_ico.png);
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: 0px 0px 0px 0px;
-    border: none;
-    cursor: pointer;
-    height: 16px;
-    width: 16px;
-    padding-left: 16px;
-    vertical-align: middle;
-    -webkit-app-region: no-drag;
-    z-index: 3;
-}
-    .buttonYoutube:disabled {
-        display: none;
-    }
 
 
 .input {
@@ -202,4 +176,26 @@ body{
     top: 11%; left: 30%;
     width: 60%;
     height: 4%;
+}
+
+.youtube {
+    background-image: url(../images/youtube_ico.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0px 0px 0px 0px;
+    border: none;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    padding-left: 16px;
+    vertical-align: middle;
+    -webkit-app-region: no-drag;
+    z-index: 3;
+}
+
+.top-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 1vmax;
 }

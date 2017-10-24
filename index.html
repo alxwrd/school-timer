@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>School Timer</title>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
@@ -11,17 +13,12 @@
         <center>
         <button class="button" id="quitButton">Close</button>
 
-        <input class="input" type="tel" id="minInput" placeholder="min"
-        onKeyDown="if(this.selectionEnd == 2 && this.selectionStart !=0 && event.keyCode!=8) {return false;}"
-        onKeyUp="if(Number(this.value) > 59) {this.value='59'; secInput.select();} else if (this.selectionEnd == 2) {secInput.select();}">
+        <input class="input" type="tel" id="inputMinutes" placeholder="min">
+        <input class="input" type="tel" id="inputSeconds" placeholder="sec">
 
-        <input class="input" type="tel" id="secInput" placeholder="sec"
-        onKeyDown="if(this.selectionEnd == 2 && this.selectionStart !=0 && event.keyCode!=8) {return false;}"
-        onKeyUp="if(Number(this.value) > 59) {this.value='59'; startButton.focus();} else if (this.selectionEnd == 2) {startButton.focus();}">
-
-        <button class="button" id="startButton" onclick="setTime()">Start</button>
+        <button class="button" id="startButton">Start</button>
         <br><br>
-        <select class="input" id="gifSelect" onchange="gifChange()">
+        <select class="input" id="gifSelect">
             <option value="images/autumn_stream.gif" selected>Autumn Stream</option>
             <option value="images/foggy_forest.gif">Foggy Forest</option>
             <option value="images/forest_waterfall.gif">Forest Waterfall</option>
@@ -43,10 +40,10 @@
 
         <div id="aimTable" class="aimsDiv divstyle">
             <div id="aimsHeader" class="divStyle">Lesson Aims:</div>
-            <div id="overallAims" class="divStyle">afds</div>
-            <div id="aimOne" class="divStyle">afds</div>
-            <div id="aimTwo" class="divStyle">dsaf</div>
-            <div id="aimThree" class="divStyle">fdas</div>
+            <div id="overallAims" class="divStyle"></div>
+            <div id="aimOne" class="divStyle"></div>
+            <div id="aimTwo" class="divStyle"></div>
+            <div id="aimThree" class="divStyle"></div>
         </div>
 
         </center>
@@ -55,13 +52,13 @@
     <img id="image" src="images/autumn_stream.gif">
     <img id="frame" src="images/frame.png">
     <img id="targetFrame" src="images/target_frame2.png">
-    <div id="timerDiv" class="timer">00:00</div>
-    <p id="instructions" class="instructions" align="center"></p>
+    <div class="timer" id="timerDisplay">00:00</div>
 
-    <button class="buttonYoutube" id="btnyoutubeToggle" style="position: fixed; top: 0; left: 0; font-size: 1vmax;" onclick="youtubeToggle()" border="1"></button>
-    <iframe width="0" height="0" src="" frameborder="0" style="position: fixed; top: 0; left: 0; font-size: 1vmax;" id="youtubePlaylist" allowfullscreen></iframe>
+    <button class="youtube top-left" id="youtubeToggle" border="1"></button>
+    <iframe class="top-left" id="youtubePlaylist" width="0" height="0" src="" frameborder="0" allowfullscreen></iframe>
 
 
-<script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
 </body>
 </html>
