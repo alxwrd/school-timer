@@ -10,57 +10,41 @@ body{
     background-size: cover;
 }
 
+#controls {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+#controls-contents {
+    display: inline-block;
+}
+
+
+.pictureframe {
+    position: relative;
+    text-align: left;
+    width: 100%;
+    
+}
 
 #image {
     position: absolute;
-    top: 55%; left: 50%;
-    transform: translate(-50%, -50%);
-    margin: auto;
-    width: 50vw;
+    top: 69px;
+    left: 69px;
     height: 28vw;
+    width: 50vw;
     z-index: -2;
-    -webkit-app-region: drag;
 }
 
 #frame {
     position: absolute;
-    top: 55%; left: 50%;
-    transform: translate(-50%, -50%);
-    margin: auto;
     width: 61vw;
     height: 38vw;
     z-index: -1;
-    -webkit-app-region: drag;
 }
 
 
-.instructions {
-    position: fixed;
-    width: 100%;
-    bottom: -2vmax;
-    color: #FAF0E6;
-    font-size: 2vmax;
-    text-shadow: 4px 4px 3px #000000;
-    -webkit-app-region: drag;
-}
-    .instructions.animate {
-        animation-fill-mode: forwards;
-        -webkit-animation: fadeinout 4s linear 1 forwards;
-        animation: fadeinout 4s linear 1 forwards;
-        animation-iteration-count: 5;
-    }
-
-@-webkit-keyframes fadeinout {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-@keyframes fadeinout {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-}
 
 .timer {
     position: fixed;
@@ -75,6 +59,7 @@ body{
     -webkit-app-region: drag;
 }
 
+
 .button {
     border-radius: 4px;
     font-size: 2vmax;
@@ -86,7 +71,6 @@ body{
     .button:disabled {
         display: none;
     }
-
 
 
 .input {
@@ -108,76 +92,6 @@ body{
     }
 
 
-.targets {
-    width: 20vmax;
-    font-size: 1.5vmax;
-    text-align-last:center;
-    }
-
-
-#targetFrame {
-    position: absolute;
-    top: 0; left: 0; right:0;
-    margin: auto;
-    width: 85%;
-    height: 18%;
-    z-index: 1;
-    display: none;
-}
-
-
-.aimsDiv{
-    display: none;
-}
-
-.divStyle {
-    background-color: #FFF8E7;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #2D1C18;
-    color: #3F2F4F;
-}
-
-#aimsHeader {
-    position: fixed;
-    font-size: 1.5vmax;
-    top: 3%; left: 10%;
-    width: 20%;
-    height: 5%;
-}
-
-#overallAims {
-    position: fixed;
-    font-size: 1vmax;
-    top: 6%; left: 10%;
-    width: 20%;
-    height: 9%;
-}
-
-#aimOne {
-    position: fixed;
-    font-size: 1vmax;
-    top: 3%; left: 30%;
-    width: 60%;
-    height: 4%;
-}
-
-#aimTwo {
-    position: fixed;
-    font-size: 1vmax;
-    top: 7%; left: 30%;
-    width: 60%;
-    height: 4%;
-}
-
-#aimThree {
-    position: fixed;
-    font-size: 1vmax;
-    top: 11%; left: 30%;
-    width: 60%;
-    height: 4%;
-}
-
 .youtube {
     background-image: url(../images/youtube_ico.png);
     background-color: transparent;
@@ -192,6 +106,7 @@ body{
     -webkit-app-region: no-drag;
     z-index: 3;
 }
+
 
 .top-left {
     position: fixed;

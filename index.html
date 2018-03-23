@@ -9,55 +9,33 @@
 </head>
 <body>
 
-    <div id="buttonContainer">
-        <center>
-        <button class="button" id="quitButton">Close</button>
+    <div id="controls">
+        <div id="controls-contents">
+            <button class="button" id="quitButton">Close</button>
 
-        <input class="input" type="tel" id="inputMinutes" placeholder="min">
-        <input class="input" type="tel" id="inputSeconds" placeholder="sec">
+            <input class="input" type="tel" id="inputMinutes" placeholder="10">
+            <input class="input" type="tel" id="inputSeconds" placeholder="00">
 
-        <button class="button" id="startButton">Start</button>
-        <br><br>
-        <select class="input" id="gifSelect">
-            <option value="images/autumn_stream.gif" selected>Autumn Stream</option>
-            <option value="images/foggy_forest.gif">Foggy Forest</option>
-            <option value="images/forest_waterfall.gif">Forest Waterfall</option>
-            <option value="images/leafy_path.gif">Leafy Path</option>
-            <option value="images/moonlit_city.gif">Moonlit City</option>
-            <option value="images/mountain_lake.gif">Mountain Lake</option>
-            <option value="images/mountain_meadow.gif">Mountain Meadow</option>
-            <option value="images/rainy_day.gif">Rainy Day</option>
-            <option value="images/snowy_forest.gif">Snowy Forest</option>
-            <option value="images/sunny_forest.gif">Sunny Forest</option>
-            <option value="images/tropical_beach.gif">Tropical Beach</option>
-            <option value="images/windy_hillside.gif">Windy Hillside</option>
-            <option value="images/stream_in_the_woods.gif">Stream in the Woods</option>
-            <option value="images/christmas_surprise.gif">Christmas Surprise</option>
-        </select>
-        <br>
-        <input class="input targets" id="lessonAims" placeholder="Lesson Aims">
-        <input class="input targets" id="targetOne" placeholder="Target One">
-        <input class="input targets" id="targetTwo" placeholder="Target Two">
-        <input class="input targets" id="targetThree" placeholder="Target Three">
-
-        <div id="aimTable" class="aimsDiv divstyle">
-            <div id="aimsHeader" class="divStyle">Lesson Aims:</div>
-            <div id="overallAims" class="divStyle"></div>
-            <div id="aimOne" class="divStyle"></div>
-            <div id="aimTwo" class="divStyle"></div>
-            <div id="aimThree" class="divStyle"></div>
+            <button class="button" id="startButton">Start</button>
+            <br><br>
+            <select class="input" id="gifSelect">
+                <option value="images/autumn_stream.gif" selected>Autumn Stream</option>
+            </select>
         </div>
+    </div>
 
-        </center>
-    <div>
+    <div class="pictureframe">
+        <img id="image" src="images/autumn_stream.gif">
+        <img id="frame" src="images/frame.png">
+    </div>
 
-    <img id="image" src="images/autumn_stream.gif">
-    <img id="frame" src="images/frame.png">
-    <img id="targetFrame" src="images/target_frame2.png">
     <div class="timer" id="timerDisplay">00:00</div>
 
-    <button class="youtube top-left" id="youtubeToggle" border="1"></button>
-    <iframe class="top-left" id="youtubePlaylist" width="0" height="0" src="" frameborder="0" allowfullscreen></iframe>
+    <div id="youtube">
+        <button class="youtube top-left" id="youtubeToggle" border="1"></button>
+        <iframe class="top-left" id="youtubePlaylist" width="0" height="0"
+            src="" frameborder="0" allowfullscreen></iframe>
+    </div>
 
 
     <script type="text/javascript" src="js/main.js"></script>
