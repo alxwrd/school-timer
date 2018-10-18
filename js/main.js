@@ -8,7 +8,6 @@ class Timer {
         this.inputMinutes = document.getElementById("inputMinutes");
         this.inputSeconds = document.getElementById("inputSeconds");
         this.startButton = document.getElementById("startButton");
-        this.quitButton = document.getElementById("quitButton");
         this.youtubeToggle = document.getElementById("youtubeToggle");
         this.youtubePlaylist = document.getElementById("youtubePlaylist");
         this.gifSelect = document.getElementById("gifSelect");
@@ -91,7 +90,6 @@ class Timer {
 
 
     turnOffFields(state){
-        this.quitButton.disabled = state;
         this.inputMinutes.disabled = state;
         this.inputSeconds.disabled = state;
         this.inputMinutes.value = "";
