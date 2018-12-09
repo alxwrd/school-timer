@@ -64,6 +64,10 @@ if (getStoreageItem("timerImages", []).length == 0) {
                 name: "Windy Hillside",
                 url: "images/windy_hillside.gif"
             },
+            {
+                name: "Christmas Suprise",
+                url: "images/christmas_surprise.gif"
+            }
         ]
     );
 }
