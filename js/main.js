@@ -1,178 +1,68 @@
+const timeUpSound = new Audio("files/Mariachi_Snooze.mp3");
+const defaultTime = 600; //Default to 10 minutes
 
-class Timer {
-
-    constructor() {
-        var self = this
-
-        this.timerDisplay = document.getElementById("timerDisplay");
-        this.inputMinutes = document.getElementById("inputMinutes");
-        this.inputSeconds = document.getElementById("inputSeconds");
-        this.startButton = document.getElementById("startButton");
-        this.quitButton = document.getElementById("quitButton");
-        this.youtubeToggle = document.getElementById("youtubeToggle");
-        this.youtubePlaylist = document.getElementById("youtubePlaylist");
-        this.gifSelect = document.getElementById("gifSelect");
-        this.image = document.getElementById("image");
-        this.frame = document.getElementById("frame");
-
-        this.aims = new Aims();
-
-        var keyDownCheck = function() {
-            if(this.selectionEnd == 2 && this.selectionStart !=0 && event.keyCode!=8) {
-                return false;
-            }
-        }
-
-        this.inputMinutes.onkeydown = keyDownCheck;
-        this.inputMinutes.onkeyup = function() {
-            if(Number(this.value) > 59) {
-                this.value='59';
-                self.inputSeconds.select();
-            } else if (this.selectionEnd == 2) {
-                self.inputSeconds.select();}
-        };
-
-        this.inputSeconds.onkeydown = keyDownCheck;
-        this.inputSeconds.onkeyup = function() {
-            if(Number(this.value) > 59) {
-                this.value='59';
-            }
-        };
-
-        this.timeUpSound = new Audio("files/Mariachi_Snooze.mp3");
-
-        this.currentTime = 600; //Default to 10 minutes
-
-        if (this.inputMinutes.value || this.inputSeconds.value) {
-            this.currentTime = (Number(this.inputMinutes.value) * 60) + Number(this.inputSeconds.value);
-        };
-    }
+const stopEvent = new Event("stop")
+const readyToStopEvent = new Event("readyToStop")
 
 
-    secondsToTime(seconds) {
-        let momentTime = moment.duration(seconds, 'seconds');
-        let sec = momentTime.seconds() < 10 ? ('0' + momentTime.seconds()) : momentTime.seconds();
-        let min = momentTime.minutes() < 10 ? ('0' + momentTime.minutes()) : momentTime.minutes();
-
-        return `${min}:${sec}`;
-    }
-
-
-    start() {
-        this.turnOffFields(true);
-        this.timeUpSound.pause();
-        this.timeUpSound.currentTime = 0;
-
-        // Print out the time
-        this.timerDisplay.innerHTML = this.secondsToTime(this.currentTime);
-
-        // Execute every second
-        let timer = setInterval(() => {
-
-            this.currentTime = this.currentTime - 1;
-            this.timerDisplay.innerHTML = this.secondsToTime(this.currentTime);
-
-            if (this.currentTime == 7) {
-                this.timeUpSound.play();
-            }
-
-            if (this.currentTime == 5) {
-                youtubePlaylist.src = "";
-            }
-
-            // When reaching 0. Stop.
-            if (this.currentTime <= 0) {
-                this.turnOffFields(false);
-                image.src = 'images/done.jpg';
-                clearInterval(timer);
-            }
-        }, 1000); // 1 second
-    };
-
-
-    turnOffFields(state){
-        this.quitButton.disabled = state;
-        this.inputMinutes.disabled = state;
-        this.inputSeconds.disabled = state;
-        this.inputMinutes.value = "";
-        this.inputSeconds.value = "";
-        this.startButton.disabled = state;
-        this.youtubeToggle.disabled = !state;
-        this.gifSelect.disabled = state;
-        this.aims.lessonAims.disabled = state;
-        this.aims.targetOne.disabled = state;
-        this.aims.targetTwo.disabled = state;
-        this.aims.targetThree.disabled = state;
-        if (state) {
-            this.youtubePlaylist.src = 'https://www.youtube.com/embed/videoseries?list=PLN9v-ASsJra3gSmRyMAQfwZwJT0Cf-bzP&autoplay=1';
-            if (this.aims.lessonAims.value || this.aims.targetOne.value ||
-                 this.aims.targetTwo.value || this.aims.targetThree.value) {
-                this.aims.targetFrame.style.display = "inline";
-                this.aims.aimTable.style.display = "inline";
-                this.aims.overallAims.innerHTML = this.aims.lessonAims.value;
-                this.aims.aimOne.innerHTML = "&nbsp;" + this.aims.targetOne.value;
-                this.aims.aimTwo.innerHTML = "&nbsp;" + this.aims.targetTwo.value;
-                this.aims.aimThree.innerHTML = "&nbsp;" + this.aims.targetThree.value;
-                this.image.style.top = "55%";
-                this.frame.style.top = "55%";
-                this.timerDisplay.style.bottom = "-2vmax";
-            } else {
-                this.image.style.top = "40%";
-                this.frame.style.top = "40%";
-                this.timerDisplay.style.bottom = "2vmax"
-            }
-        } else {
-            this.youtubePlaylist.src = "";
-            this.aims.aimTable.style.display = "none";
-            this.aims.targetFrame.style.display = "none";
-            this.image.style.top = "55%";
-            this.frame.style.top = "55%";
-            this.timerDisplay.style.bottom = "-2vmax";
-        }
-        this.inputMinutes.focus();
-    };
-}
-
-
-
-class Aims {
-
-    constructor() {
-        this.lessonAims = document.getElementById("lessonAims");
-        this.targetOne = document.getElementById("targetOne");
-        this.targetTwo = document.getElementById("targetTwo");
-        this.targetThree = document.getElementById("targetThree");
-        this.aimOne = document.getElementById("aimOne");
-        this.aimTwo = document.getElementById("aimTwo");
-        this.aimThree = document.getElementById("aimThree");
-        this.targetFrame = document.getElementById("targetFrame");
-        this.aimTable = document.getElementById("aimTable");
-        this.overallAims = document.getElementById("overallAims");
-    }
-
-}
-
-
-
-document.getElementById("startButton").onclick = function() {
-    timer = new Timer();
-    timer.start();
-}
-
-
-document.getElementById("youtubeToggle").onclick = function() {
-    youtubePlaylist = document.getElementById("youtubePlaylist")
-
-    if (youtubePlaylist.width > 1) {
-        youtubePlaylist.width = "0";
-        youtubePlaylist.height = "0";
+function getStoreageItem(name, defaultValue) {
+    var result = JSON.parse(window.localStorage.getItem(name));
+    if (result) {
+        return result
     } else {
-        youtubePlaylist.width = "500";
-        youtubePlaylist.height = "200";
-    };
+        return defaultValue;
+    }
 };
 
 
-document.getElementById("gifSelect").onchange = function() {
-    image.src = gifSelect.value;
-}
+function setStoreageItem(name, value) {
+    window.localStorage.setItem(name, JSON.stringify(value));
+};
+
+
+window.addEventListener("start", function() {
+    let minutes = document.getElementById("inputMinutes").value;
+    let seconds = document.getElementById("inputSeconds").value;
+
+    totalTime = (Number(minutes) * 60) + Number(seconds);
+
+    clearInterval(window.timer);
+
+    var time = totalTime || defaultTime;
+
+    timeUpSound.pause();
+    timeUpSound.currentTime = 0;
+
+    var timerDisplay = document.getElementById("timerDisplay")
+    timerDisplay.innerHTML = secondsToTimeString(time);
+
+    // Execute every second
+    window.timer = setInterval(() => {
+        time = time - 1;
+
+        timerDisplay.innerHTML = secondsToTimeString(time);
+
+        if (time == 7) {
+            timeUpSound.play();
+        }
+
+        if (time == 5) {
+            window.dispatchEvent(readyToStopEvent)
+        }
+
+        if (time <= 0) {
+            window.dispatchEvent(stopEvent)
+            clearInterval(window.timer);
+        }
+
+    }, 1000);
+});
+
+
+function secondsToTimeString(seconds) {
+    var time = moment.duration(seconds, 'seconds');
+    var sec = time.seconds() < 10 ? ('0' + time.seconds()) : time.seconds();
+    var min = time.minutes() < 10 ? ('0' + time.minutes()) : time.minutes();
+
+    return `${min}:${sec}`;
+};

@@ -1,0 +1,127 @@
+@import 'https://fonts.googleapis.com/css?family=Comfortaa:700';
+@import 'https://fonts.googleapis.com/css?family=Cutive+Mono';
+
+body{
+    font-family: 'Comfortaa', serif;
+    background: url("images/wallpaper.jpg");
+}
+
+
+.bottom {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.timerfont {
+    font-family: 'Cutive Mono', monospace;
+    color: #FFF8E7;
+    text-shadow: 1px 1px 10px #000000;
+}
+
+.large-font {
+    font-size: 10vmax;
+    letter-spacing: -2vmax;
+}
+
+.medium-font {
+    font-size: 7vmax;
+}
+
+.small-font {
+    font-size: 16px;
+}
+
+.timerfont::placeholder {
+    opacity: 0.8;
+}
+
+.timerinput {
+    border: none;
+    background: transparent;
+    width: 11vmax;
+    text-align: center;
+}
+
+.centered {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.hidden {
+    visibility: hidden !important;
+}
+
+.gone {
+    display: none !important;
+}
+
+.pictureframe {
+    position: absolute;
+    top: 55%; left: 50%;
+    margin: auto;
+}
+
+.player {
+    width: 400px;
+    color: #000000;
+    position: absolute;
+}
+
+#image {
+    width: 50vmax;
+    height: 28vmax;
+    z-index: -2;
+    transform: translate(-50%, -64%);
+}
+
+#frame {
+    transform: translate(-50%, -59%);
+    width: 78vmax;
+    height: 47vmax;
+    z-index: -1;
+}
+
+
+#youtubeToggle {
+    position: absolute;
+    background-image: url(images/youtube_ico.png);
+    background-size: 24px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    height: 16px;
+    width: 20px;
+    vertical-align: middle;
+    z-index: 3;
+}
+
+
+.gifSelector {
+    display: block;
+    margin: 0 auto;
+    width: 30vmax;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,.8);
+}
+
+
+.youtubeerror {
+    animation: glow .5s infinite alternate;
+}
+
+@keyframes glow {
+    to {
+        height: 24px;
+        width: 32px;
+        background-size: 40px;
+        box-shadow: 0 0 10px white;
+    }
+}
