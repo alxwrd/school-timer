@@ -3,7 +3,7 @@
 
 body{
     font-family: 'Comfortaa', serif;
-    background: url("../images/wallpaper.jpg");
+    background: url("images/wallpaper.jpg");
 }
 
 
@@ -88,7 +88,7 @@ body{
 
 #youtubeToggle {
     position: absolute;
-    background-image: url(../images/youtube_ico.png);
+    background-image: url(images/youtube_ico.png);
     background-size: 24px;
     background-color: transparent;
     background-repeat: no-repeat;
