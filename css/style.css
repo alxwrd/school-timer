@@ -3,114 +3,125 @@
 
 body{
     font-family: 'Comfortaa', serif;
-    background: url("../images/wallpaper.jpg") no-repeat center center fixed #8C2538;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: url("../images/wallpaper.jpg");
 }
 
-#controls {
-    width: 60%;
-    margin: auto;
+
+.bottom {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.timerfont {
+    font-family: 'Cutive Mono', monospace;
+    color: #FFF8E7;
+    text-shadow: 1px 1px 10px #000000;
+}
+
+.large-font {
+    font-size: 10vmax;
+    letter-spacing: -2vmax;
+}
+
+.medium-font {
+    font-size: 7vmax;
+}
+
+.small-font {
+    font-size: 16px;
+}
+
+.timerfont::placeholder {
+    opacity: 0.8;
+}
+
+.timerinput {
+    border: none;
+    background: transparent;
+    width: 11vmax;
     text-align: center;
 }
 
-#controls-contents {
-    display: inline-block;
+.centered {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
+.hidden {
+    visibility: hidden !important;
+}
+
+.gone {
+    display: none !important;
+}
 
 .pictureframe {
-    position: relative;
-    text-align: left;
-    width: 100%;
-    
+    position: absolute;
+    top: 55%; left: 50%;
+    margin: auto;
+}
+
+.player {
+    width: 400px;
+    color: #000000;
+    position: absolute;
 }
 
 #image {
-    position: absolute;
-    top: 69px;
-    left: 69px;
-    height: 28vw;
-    width: 50vw;
+    width: 50vmax;
+    height: 28vmax;
     z-index: -2;
+    transform: translate(-50%, -64%);
 }
 
 #frame {
-    position: absolute;
-    width: 61vw;
-    height: 38vw;
+    transform: translate(-50%, -59%);
+    width: 78vmax;
+    height: 47vmax;
     z-index: -1;
 }
 
 
-
-.timer {
-    position: fixed;
-    bottom: -2vmax;
-    left: 50%;
-    transform: translate(-50%);
-    font-size: 10vmax;
-    font-family: 'Cutive Mono', monospace;
-    color: #FAF0E6;
-    text-shadow: 5px 5px 10px #000000;
-    letter-spacing: -2vmax;
-    -webkit-app-region: drag;
-}
-
-
-.button {
-    border-radius: 4px;
-    font-size: 2vmax;
-    background-color:  #FFF8E7;
-    font-family: 'Comfortaa', serif;
-    color: #3F2F4F;
-    -webkit-app-region: no-drag;
-}
-    .button:disabled {
-        display: none;
-    }
-
-
-.input {
-    border-radius: 4px;
-    font-size: 2vmax;
-    background-color:  #FFF8E7;
-    font-family: 'Comfortaa', serif;
-    color: #3F2F4F;
-    width: 10vmax;
-    -webkit-app-region: no-drag;
-}
-    .input:disabled {
-        display: none;
-    }
-    .input#gifSelect {
-        width: 18vmax;
-        font-size: 1.5vmax;
-        text-align-last:center
-    }
-
-
-.youtube {
+#youtubeToggle {
+    position: absolute;
     background-image: url(../images/youtube_ico.png);
+    background-size: 24px;
     background-color: transparent;
     background-repeat: no-repeat;
-    background-position: 0px 0px 0px 0px;
+    background-position: center;
+    border-radius: 4px;
     border: none;
     cursor: pointer;
     height: 16px;
-    width: 16px;
-    padding-left: 16px;
+    width: 20px;
     vertical-align: middle;
-    -webkit-app-region: no-drag;
     z-index: 3;
 }
 
 
-.top-left {
-    position: fixed;
-    top: 0;
-    left: 0;
-    font-size: 1vmax;
+.gifSelector {
+    display: block;
+    margin: 0 auto;
+    width: 30vmax;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,.8);
+}
+
+
+.youtubeerror {
+    animation: glow .5s infinite alternate;
+}
+
+@keyframes glow {
+    to {
+        height: 24px;
+        width: 32px;
+        background-size: 40px;
+        box-shadow: 0 0 10px white;
+    }
 }
