@@ -10,6 +10,14 @@ const playerWidth = 400;
 
 playerToggle.showing = false;
 
+
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag); 
+
+
 window.onYouTubeIframeAPIReady = function() {
     window.player = new YT.Player(
         'youtube',
@@ -51,14 +59,27 @@ function checkPlayback(event) {
 }
 
 window.addEventListener("start", function(event) {
+    playVideo();
+});
+
+
+function playVideo() {
     if (!window.playerReady) {
         setTimeout(function () {
-            window.player.playVideo();
-        }, 100);
-    } else {
-        window.player.playVideo();
-    }
-});
+            playVideo();
+        }, 1000);
+        return;
+    } 
+    playerToggle.click();
+    window.player.setSize(1, 1);
+    window.player.playVideo();
+    playlistId.classList.add("hidden");
+    setTimeout(function() {
+        window.player.setSize(playerWidth, playerHeight);
+        playerToggle.click();
+        playlistId.classList.remove("hidden");
+    }, 500);
+};
 
 
 window.addEventListener("readyToStop", function(event) {
