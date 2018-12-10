@@ -78,7 +78,7 @@ function playVideo() {
         window.player.setSize(playerWidth, playerHeight);
         playerToggle.click();
         playlistId.classList.remove("hidden");
-    }, 500);
+    }, 5000);
 };
 
 
