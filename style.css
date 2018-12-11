@@ -4,6 +4,8 @@
 body{
     font-family: 'Comfortaa', serif;
     background: url("images/wallpaper.jpg");
+    background-size: 50%;
+    background-repeat: repeat;
 }
 
 
