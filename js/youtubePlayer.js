@@ -26,7 +26,7 @@ window.onYouTubeIframeAPIReady = function() {
             width: playerWidth,
             playerVars: {
                 listType:'playlist',
-                list: getStoreageItem("youtubePlaylist", "PL9PqVRbzGoibU4nDs_0RCfyw7BIC_p5mI")
+                list: getStoreageItem("youtubePlaylist", "PLN9v-ASsJra3gSmRyMAQfwZwJT0Cf-bzP")
             },
             events: {
                 'onReady': function(event) {
