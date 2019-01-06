@@ -46,16 +46,16 @@ function checkPlayback(event) {
     // event -1 unstarted, event 3 buffering
     // If a video's last state was buffering, and it's now unstarted,
     //  it most likely wasn't a embedable video, so skip it
-    if (
-        event.data == -1
-        && checkPlayback.lastEvent
-        && checkPlayback.lastEvent.data == 3) {
-        setTimeout(function () {
-            window.player.nextVideo();
-            checkPlayback.lastEvent = null;
-        }, 2000)
-    }
-    checkPlayback.lastEvent = event;
+    // if (
+    //     event.data == -1
+    //     && checkPlayback.lastEvent
+    //     && checkPlayback.lastEvent.data == 3) {
+    //     setTimeout(function () {
+    //         window.player.nextVideo();
+    //         checkPlayback.lastEvent = null;
+    //     }, 2000)
+    // }
+    // checkPlayback.lastEvent = event;
 }
 
 window.addEventListener("start", function(event) {
